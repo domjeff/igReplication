@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:igreplicate/components/tab/tab.dart';
+import 'package:igreplicate/components/imagePage/imagePage.dart';
 
 class PhotoGallery extends StatefulWidget {
   PhotoGallery({Key key, this.itemCount: 8}) : super(key: key);
@@ -19,11 +20,17 @@ class _PhotoGalleryState extends State<PhotoGallery> {
       itemCount: widget.itemCount,
       itemBuilder: (BuildContext context, int index) => new Container(
         color: Colors.black,
-        child: Container(
-          decoration: new BoxDecoration(
-            image: new DecorationImage(
-              fit: BoxFit.contain,
-              image: new NetworkImage("https://i.imgur.com/BoN9kdC.png"),
+        child: GestureDetector(
+          onTap: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => ImagePage()));
+          },
+          child: Container(
+            decoration: new BoxDecoration(
+              image: new DecorationImage(
+                fit: BoxFit.contain,
+                image: new NetworkImage("https://i.imgur.com/BoN9kdC.png"),
+              ),
             ),
           ),
         ),
