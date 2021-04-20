@@ -6,6 +6,28 @@ class ImagePage extends StatefulWidget {
 }
 
 class _ImagePageState extends State<ImagePage> {
+  bool tagVisibility = false;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    this.tagVisibility = false;
+    super.initState();
+  }
+
+  void manageTagVisibility(bool currentTagVisibility) {
+    setState(() {
+      tagVisibility = !currentTagVisibility;
+    });
+  }
+
+  bool showTag() {
+    if (this.tagVisibility == null) {
+      return false;
+    }
+    return this.tagVisibility;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -15,21 +37,37 @@ class _ImagePageState extends State<ImagePage> {
           child: Stack(
             children: [
               Positioned(
-                bottom: 5,
-                left: 5,
                 child: GestureDetector(
+                  onTap: () {
+                    manageTagVisibility(showTag());
+                  },
                   child: Container(
-                    width: 35,
-                    height: 35,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.black,
-                    ),
-                    child: Icon(
-                      Icons.tag_faces,
-                      color: Colors.white,
-                      size: 33,
-                      semanticLabel: 'Text to announce in accessibility modes',
+                    color: Colors.transparent,
+                    width: double.infinity,
+                    height: double.infinity,
+                  ),
+                ),
+              ),
+              Visibility(
+                visible: showTag(),
+                child: Positioned(
+                  bottom: 5,
+                  left: 5,
+                  child: GestureDetector(
+                    child: Container(
+                      width: 35,
+                      height: 35,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.black,
+                      ),
+                      child: Icon(
+                        Icons.tag_faces,
+                        color: Colors.white,
+                        size: 33,
+                        semanticLabel:
+                            'Text to announce in accessibility modes',
+                      ),
                     ),
                   ),
                 ),
