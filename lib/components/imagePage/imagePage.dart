@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:bubble/bubble.dart';
 
 class ImagePage extends StatefulWidget {
   @override
@@ -51,23 +54,43 @@ class _ImagePageState extends State<ImagePage> {
               Visibility(
                 visible: showTag(),
                 child: Positioned(
-                  bottom: 5,
-                  left: 5,
-                  child: GestureDetector(
-                    child: Container(
-                      width: 35,
-                      height: 35,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.black,
-                      ),
-                      child: Icon(
-                        Icons.tag_faces,
+                  top: MediaQuery.of(context).size.width * 0.5,
+                  left: MediaQuery.of(context).size.width * 0.5,
+                  child: Bubble(
+                    stick: true,
+                    nip: BubbleNip.leftTop,
+                    nipHeight: 30,
+                    nipWidth: 10,
+                    color: Color.fromARGB(150, 47, 51, 55),
+                    child: Text(
+                      "tagged user 1",
+                      style: TextStyle(
                         color: Colors.white,
-                        size: 33,
-                        semanticLabel:
-                            'Text to announce in accessibility modes',
+                        decoration: TextDecoration.none,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.normal,
                       ),
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: 5,
+                left: 5,
+                child: GestureDetector(
+                  child: Container(
+                    width: 35,
+                    height: 35,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.black,
+                    ),
+                    child: Icon(
+                      Icons.tag_faces,
+                      color: Colors.white,
+                      size: 33,
+                      semanticLabel: 'Text to announce in accessibility modes',
                     ),
                   ),
                 ),
