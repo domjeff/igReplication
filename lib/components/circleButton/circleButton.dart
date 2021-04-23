@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 
 class CircleImageButton extends StatefulWidget {
-  CircleImageButton({Key key, this.isBorder: false}) : super(key: key);
+  CircleImageButton({
+    Key key,
+    this.isBorder: false,
+    this.size: 80,
+    this.withText: true,
+  }) : super(key: key);
 
   bool isBorder;
+  double size;
+  bool withText;
 
   @override
   _CircleImageButtonState createState() => new _CircleImageButtonState();
@@ -15,6 +22,7 @@ class _CircleImageButtonState extends State<CircleImageButton> {
   @override
   initState() {
     isBorder = widget.isBorder;
+
     super.initState();
   }
 
@@ -45,10 +53,13 @@ class _CircleImageButtonState extends State<CircleImageButton> {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
+        SizedBox(
+          height: 5,
+        ),
         GestureDetector(
           child: new Container(
-            width: 80.0,
-            height: 80.0,
+            width: widget.size,
+            height: widget.size,
             decoration: new BoxDecoration(
               shape: BoxShape.circle,
 //            borderRadius: BorderRadius.circular(30.0),
@@ -61,7 +72,12 @@ class _CircleImageButtonState extends State<CircleImageButton> {
           ),
           onTap: _changeBorder,
         ),
-        new Text("John Doe", textScaleFactor: 1.5),
+        widget.withText
+            ? new Text("John Doe", textScaleFactor: 1.5)
+            : SizedBox(
+                width: 0,
+                height: 0,
+              ),
       ],
     ));
   }
