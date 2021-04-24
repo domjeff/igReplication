@@ -71,51 +71,74 @@ class _ImagePageState extends State<ImagePage> {
 //                  ),
 //                ),
 //              ),
-              Container(
-                  color: Colors.black,
-                  padding: EdgeInsets.all(10),
-                  child: Center(
+              Expanded(
+                flex: 7,
+                child: Column(
+                  children: [
+                    Container(
+                      color: Colors.black,
+                      padding: EdgeInsets.all(10),
                       child: RichText(
-                    text: TextSpan(
-                      text:
-                          'GitHub is a development platform inspired by the way you work. From ',
-                      style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 9,
-                          fontWeight: FontWeight.bold),
-                      children: <TextSpan>[
-                        TextSpan(
-                          text: 'open source',
+                        text: TextSpan(
+                          text:
+                              'GitHub is a development platform inspired by the way you work. From ',
                           style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 9,
-                              fontWeight: FontWeight.bold,
-                              decoration: TextDecoration.underline),
+                            color: Colors.grey,
+                            fontSize: 9,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: 'open source',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 9,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.underline),
+                            ),
+                            TextSpan(
+                                text: ' to ',
+                                style: TextStyle(
+                                    color: Colors.grey,
+                                    fontSize: 9,
+                                    fontWeight: FontWeight.bold)),
+                            TextSpan(
+                              text: 'business,',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 9,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.underline),
+                            ),
+                            TextSpan(
+                                text:
+                                    ' you can host and review code, manage projects, and build software alongside 36 million developers.',
+                                style: TextStyle(
+                                    color: Colors.grey,
+                                    fontSize: 9,
+                                    fontWeight: FontWeight.bold))
+                          ],
                         ),
-                        TextSpan(
-                            text: ' to ',
-                            style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 9,
-                                fontWeight: FontWeight.bold)),
-                        TextSpan(
-                          text: 'business,',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 9,
-                              fontWeight: FontWeight.bold,
-                              decoration: TextDecoration.underline),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Icon(
+                          Icons.comment,
+                          size: 10,
                         ),
-                        TextSpan(
-                            text:
-                                ' you can host and review code, manage projects, and build software alongside 36 million developers.',
-                            style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 9,
-                                fontWeight: FontWeight.bold))
                       ],
                     ),
-                  ))),
+                  ],
+                ),
+              ),
+              Expanded(
+                flex: 1,
+                child: Container(
+                  child: Icon(Icons.comment),
+                ),
+              ),
             ],
           ),
         )
