@@ -7,8 +7,6 @@ class viewedImages extends StatefulWidget {
 }
 
 class _viewedImagesState extends State<viewedImages> {
-  int currentIndex;
-
   @override
   Widget build(BuildContext context) {
     return Container(
