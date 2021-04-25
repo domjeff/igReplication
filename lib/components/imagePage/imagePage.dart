@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 //import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:igreplicate/components/imagePage/coment/coment.dart';
-import 'package:igreplicate/components/imagePage/viewedPage.dart';
 import 'package:igreplicate/components/circleButton/circleButton.dart';
+import 'package:igreplicate/components/imagePage/viewedImages/viewedImages.dart';
 
 class ImagePage extends StatefulWidget {
   @override
@@ -38,7 +38,8 @@ class _ImagePageState extends State<ImagePage> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        viewedImage(),
+//        viewedImage(),
+        viewedImages(),
         Container(
           padding: EdgeInsets.only(left: 5, top: 5),
           height: 70,
@@ -49,28 +50,6 @@ class _ImagePageState extends State<ImagePage> {
                 size: 45,
                 withText: false,
               ),
-//              Container(
-//                padding: EdgeInsets.all(10),
-//                child: Center(
-//                  child: RichText(
-//                    text: TextSpan(
-//                        text: 'Comenters 1',
-//                        style: TextStyle(
-//                          fontWeight: FontWeight.bold,
-//                          color: Colors.black,
-//                          fontSize: 15,
-//                        ),
-//                        children: [
-//                          TextSpan(
-//                            text: 'Lorem ipsu ',
-//                            style: TextStyle(
-//                              fontWeight: FontWeight.normal,
-//                            ),
-//                          ),
-//                        ]),
-//                  ),
-//                ),
-//              ),
               Expanded(
                 flex: 7,
                 child: Column(

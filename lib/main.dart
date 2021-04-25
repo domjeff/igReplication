@@ -4,7 +4,7 @@ import 'components/circleButton/circleButton.dart';
 import 'components/topItems/topItems.dart';
 import 'components/tab/middleTab.dart';
 import 'components/photoGallery/photoGallery.dart';
-import 'components/imagePage/viewedPage.dart';
+import 'components/imagePage/viewedImages/viewedImage.dart';
 
 void main() {
   runApp(MyApp());
