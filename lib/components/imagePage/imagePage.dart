@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:igreplicate/components/imagePage/coment/coment.dart';
 import 'package:igreplicate/components/circleButton/circleButton.dart';
 import 'package:igreplicate/components/imagePage/viewedImages/viewedImages.dart';
+import 'package:igreplicate/components/imagePage/viewedImages/viewedImage.dart';
 
 class ImagePage extends StatefulWidget {
   @override
