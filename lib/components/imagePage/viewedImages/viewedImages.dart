@@ -25,7 +25,7 @@ class _viewedImagesState extends State<viewedImages> {
                     color: i % 2 == 1 ? Colors.amber : Colors.blue,
                   ),
                   child: Text(
-                    'text $i',
+                    'text_ $i',
                     style: TextStyle(fontSize: 16.0),
                   ),
                 );
