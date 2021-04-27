@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:igreplicate/components/imagePage/viewedImages/viewedImage.dart';
 
 class viewedImages extends StatefulWidget {
   int length;
@@ -71,16 +72,17 @@ class _viewedImagesState extends State<viewedImages> {
               (i) {
                 return Builder(
                   builder: (BuildContext context) {
-                    return Container(
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                        color: i % 2 == 1 ? Colors.amber : Colors.blue,
-                      ),
-                      child: Text(
-                        'text $i',
-                        style: TextStyle(fontSize: 16.0),
-                      ),
-                    );
+                    return viewedImage();
+//                      Container(
+//                      width: MediaQuery.of(context).size.width,
+//                      decoration: BoxDecoration(
+//                        color: i % 2 == 1 ? Colors.amber : Colors.blue,
+//                      ),
+//                      child: Text(
+//                        'text $i',
+//                        style: TextStyle(fontSize: 16.0),
+//                      ),
+//                    );
                   },
                 );
               },
