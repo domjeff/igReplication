@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:igreplicate/components/imagePage/imagePage.dart';
 import 'components/circleButton/circleButton.dart';
 import 'components/topItems/topItems.dart';
 import 'components/tab/middleTab.dart';
 import 'components/photoGallery/photoGallery.dart';
+import 'components/imagePage/viewedImages/viewedImage.dart';
 
 void main() {
   runApp(MyApp());
@@ -102,18 +104,10 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-//            Text(
-//              'You have pushed the button this many times:',
-//            ),
-//            Text(
-//              '$_counter',
-//              style: Theme.of(context).textTheme.headline4,
-//            ),
-//            CircleImageButton(),
-            TopItems(),
-            Tab2(),
-//            photoGallery(),
-//            PhotoTab(),
+//            disini
+//            TopItems(),
+//            Tab2(),
+            ImagePage(),
           ],
         ),
       ),

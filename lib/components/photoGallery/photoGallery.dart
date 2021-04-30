@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:igreplicate/components/tab/tab.dart';
-import 'package:igreplicate/components/imagePage/imagePage.dart';
+import 'file:///C:/Alam/Flutter%20Development/ig_replicate/ig_replicate/lib/components/imagePage/imagePage.dart';
 
 class PhotoGallery extends StatefulWidget {
   PhotoGallery({Key key, this.itemCount: 8}) : super(key: key);

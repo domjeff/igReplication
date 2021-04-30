@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
+//import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:bubble/bubble.dart';
+import 'package:igreplicate/components/imagePage/coment/coment.dart';
+import 'package:igreplicate/components/circleButton/circleButton.dart';
+import 'package:igreplicate/components/imagePage/viewedImages/viewedImages.dart';
+import 'package:igreplicate/components/imagePage/viewedImages/viewedImage.dart';
 
 class ImagePage extends StatefulWidget {
   @override
@@ -14,8 +17,8 @@ class _ImagePageState extends State<ImagePage> {
   @override
   void initState() {
     // TODO: implement initState
-    this.tagVisibility = false;
     super.initState();
+    this.tagVisibility = false;
   }
 
   void manageTagVisibility(bool currentTagVisibility) {
@@ -36,77 +39,89 @@ class _ImagePageState extends State<ImagePage> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
+//        viewedImage(),
+        viewedImages(),
         Container(
-          child: Stack(
+          padding: EdgeInsets.only(left: 5, top: 5),
+          height: 70,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Positioned(
-                child: GestureDetector(
-                  onTap: () {
-                    manageTagVisibility(showTag());
-                  },
-                  child: Container(
-                    color: Colors.transparent,
-                    width: double.infinity,
-                    height: double.infinity,
-                  ),
-                ),
+              CircleImageButton(
+                size: 45,
+                withText: false,
               ),
-              Visibility(
-                visible: showTag(),
-                child: Positioned(
-                  top: MediaQuery.of(context).size.width * 0.5,
-                  left: MediaQuery.of(context).size.width * 0.5,
-                  child: Bubble(
-                    stick: true,
-                    nip: BubbleNip.leftTop,
-                    nipHeight: 30,
-                    nipWidth: 10,
-                    color: Color.fromARGB(150, 47, 51, 55),
-                    child: Text(
-                      "tagged user 1",
-                      style: TextStyle(
-                        color: Colors.white,
-                        decoration: TextDecoration.none,
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                        fontStyle: FontStyle.normal,
+              Expanded(
+                flex: 7,
+                child: Column(
+                  children: [
+                    Container(
+                      color: Colors.black,
+                      padding: EdgeInsets.all(10),
+                      child: RichText(
+                        text: TextSpan(
+                          text:
+                              'GitHub is a development platform inspired by the way you work. From ',
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 9,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: 'open source',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 9,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.underline),
+                            ),
+                            TextSpan(
+                                text: ' to ',
+                                style: TextStyle(
+                                    color: Colors.grey,
+                                    fontSize: 9,
+                                    fontWeight: FontWeight.bold)),
+                            TextSpan(
+                              text: 'business,',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 9,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.underline),
+                            ),
+                            TextSpan(
+                                text:
+                                    ' you can host and review code, manage projects, and build software alongside 36 million developers.',
+                                style: TextStyle(
+                                    color: Colors.grey,
+                                    fontSize: 9,
+                                    fontWeight: FontWeight.bold))
+                          ],
+                        ),
                       ),
                     ),
-                  ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Icon(
+                          Icons.comment,
+                          size: 10,
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
-              Positioned(
-                bottom: 5,
-                left: 5,
-                child: GestureDetector(
-                  child: Container(
-                    width: 35,
-                    height: 35,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.black,
-                    ),
-                    child: Icon(
-                      Icons.tag_faces,
-                      color: Colors.white,
-                      size: 33,
-                      semanticLabel: 'Text to announce in accessibility modes',
-                    ),
-                  ),
+              Expanded(
+                flex: 1,
+                child: Container(
+                  child: Icon(Icons.comment),
                 ),
               ),
             ],
           ),
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
-            color: Colors.red,
-            image: DecorationImage(
-              fit: BoxFit.fitWidth,
-              image: NetworkImage("https://i.imgur.com/BoN9kdC.png"),
-            ),
-          ),
-        ),
+        )
       ],
     );
   }
